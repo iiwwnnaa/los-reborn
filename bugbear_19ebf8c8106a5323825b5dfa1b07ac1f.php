@@ -2,7 +2,7 @@
   include "./config.php"; 
   login_chk(); 
   $conn = dbconnect();  
-  if(preg_match('/prob|_|\.|\(\)/i', $_GET[no])) exit("No Hack ~_~"); 
+  if(preg_match('/prob|_|\.|\(\)/i', $_GET['no'])) exit("No Hack ~_~"); 
   if(preg_match('/\'/i', $_GET['pw'])) exit("HeHe"); 
   if(preg_match('/\'|substr|ascii|=|or|and| |like|0x/i', $_GET['no'])) exit("HeHe"); 
   $query = "select id from prob_bugbear where id='guest' and pw='{$_GET['pw']}' and no={$_GET['no']}"; 
