@@ -6,4 +6,5 @@ Database account need <strong>Select, Insert, Update, Delete, Create temporary t
 * hell_fire, evil_wizard challenge is unsolvable now. skip it<br><br>
 
 ------------------------ 2022.07.24 ----------------------------<br>
-Edited mysql_.. to mysqli_.. because mysql_.. is deprecated and removed on PHP7
+1. Changed mysql_.. to mysqli_.. because mysql_.. is deprecated and removed on PHP7<br>
+2. Edited some syntax based on PHP7
