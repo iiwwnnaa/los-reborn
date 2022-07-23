@@ -11,9 +11,8 @@ function dbconnect(){
   $mysql_user="los";
   $mysql_password="123";
   $mysql_database="los";
-  $db=mysql_connect($mysql_hostname,$mysql_user,$mysql_password) or die("db connection error");
-  mysql_select_db($mysql_database,$db) or die("db connection error2");
-  mysql_query("set names utf8",$db);
+  $conn=mysql_connect($mysql_hostname,$mysql_user,$mysql_password,$mysql_database) or die("db connection error");
+  mysql_query($conn, "set names utf8");
 }
 
 function login_chk(){
@@ -42,11 +41,11 @@ function solve($monster_name){
     if($monster_list[$i] == $monster_name) $solved = $i;
   }
   $q = "select level from user_db where id='{$_SESSION[los_id]}'";
-  $result = @mysql_fetch_array(mysql_query($q));
+  $result = @mysqli_fetch_array(mysqli_query($q));
   $now_level = $result['level'];
   if($now_level == $solved){
     $query = "update user_db set lastauth=now(),level=(level+1) where id='{$_SESSION[los_id]}'";
-    mysql_query($query);
+    mysqli_query($query);
   }
   $tmp = strtoupper($monster_list[$solved]);
   echo "<h2>{$tmp} Clear!</h2>";

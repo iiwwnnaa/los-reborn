@@ -25,10 +25,10 @@
 <body bgcolor=black><center><font color=white>
 <h2>Lord of SQLinjection</h2>
 <?php
-  $rank_r = mysql_query("select level,id from user_db where id != 'rubiya' order by level desc, lastauth asc limit 20");
+  $rank_r = mysqli_query("select level,id from user_db where id != 'rubiya' order by level desc, lastauth asc limit 20");
   $id = $_SESSION['los_id'];
   $q = "select * from user_db where id='{$id}'";
-  $r = @mysql_fetch_array(mysql_query($q));
+  $r = @mysqli_fetch_array(mysqli_query($q));
   $level = $r['level'];
   echo "id : <strong>{$id}</strong><br>pwning : <strong>{$monster_list[$level]}</strong><br><br><a id=\"rank\">Stat</a><br><br>";
   for($i=1;$i<$level;$i++){
@@ -46,7 +46,7 @@
 <div id="rankpage" title="Top 20">
 <?php
   for($i=1;$i<=20;$i++){
-    $rank1 = @mysql_fetch_array($rank_r);
+    $rank1 = @mysqli_fetch_array($rank_r);
     echo $rank1[id] . " - {$monster_list[$rank1[level]]}<br>\n";
   }
 ?>

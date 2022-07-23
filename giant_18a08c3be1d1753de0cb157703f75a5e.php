@@ -6,7 +6,7 @@
   if(preg_match('/ |\n|\r|\t/i', $_GET[shit])) exit("HeHe"); 
   $query = "select 1234 from{$_GET[shit]}prob_giant where 1"; 
   echo "<hr>query : <strong>{$query}</strong><hr><br>"; 
-  $result = @mysql_fetch_array(mysql_query($query)); 
+  $result = @mysqli_fetch_array(mysqli_query($query)); 
   if($result[1234]) solve("giant"); 
   highlight_file(__FILE__); 
 ?>

@@ -1,6 +1,9 @@
-# los
+# los-reborn
 
 Database account need <strong>Select, Insert, Update, Delete, Create temporary tables</strong> permission.<br>
 <strong>magic_quotes_gpc</strong> must <strong>Off</strong><br><br>
 
 * hell_fire, evil_wizard challenge is unsolvable now. skip it
+
+------------------------ 2022.07.24 ----------------------------
+Edited mysql_.. to mysqli_.. because mysql_.. is deprecated and removed on PHP7

@@ -6,7 +6,7 @@
   $_GET[id] = str_replace("admin","",$_GET[id]); 
   $query = "select id from prob_vampire where id='{$_GET[id]}'"; 
   echo "<hr>query : <strong>{$query}</strong><hr><br>"; 
-  $result = @mysql_fetch_array(mysql_query($query)); 
+  $result = @mysqli_fetch_array(mysqli_query($query)); 
   if($result['id'] == 'admin') solve("vampire"); 
   highlight_file(__FILE__); 
 ?>

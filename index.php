@@ -15,7 +15,7 @@ if($_SERVER['QUERY_STRING'] == "join"){
   include "config.php";
   dbconnect();
   $query = "select id from user_db where id='{$_POST[id]}'";
-  $result = @mysql_fetch_array(mysql_query($query));
+  $result = @mysqli_fetch_array(mysqli_query($query)); 
   if($result['id']) exit("id exist");
   else{
     $time = time();
@@ -32,7 +32,7 @@ elseif($_SERVER['QUERY_STRING'] == "login"){
   include "config.php";
   dbconnect();
   $query = "select id from user_db where id='{$_POST[id]}' and pw='{$_POST[pw]}'";
-  $result = @mysql_fetch_array(mysql_query($query));
+  $result = @mysqli_fetch_array(mysqli_query($query)); 
   if($result['id']){
     $_SESSION['los_id'] = $result['id'];
 	exit("<script>location.href='./gate.php';</script>");

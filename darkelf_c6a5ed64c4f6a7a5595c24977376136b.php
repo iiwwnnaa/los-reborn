@@ -6,7 +6,7 @@
   if(preg_match('/or|and/i', $_GET[pw])) exit("HeHe"); 
   $query = "select id from prob_darkelf where id='guest' and pw='{$_GET[pw]}'"; 
   echo "<hr>query : <strong>{$query}</strong><hr><br>"; 
-  $result = @mysql_fetch_array(mysql_query($query)); 
+  $result = @mysqli_fetch_array(mysqli_query($query)); 
   if($result['id']) echo "<h2>Hello {$result[id]}</h2>"; 
   if($result['id'] == 'admin') solve("darkelf"); 
   highlight_file(__FILE__); 

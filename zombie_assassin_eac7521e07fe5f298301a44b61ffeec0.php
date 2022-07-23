@@ -8,7 +8,7 @@
   if(@ereg("'",$_GET[pw])) exit("HeHe"); 
   $query = "select id from prob_zombie_assassin where id='{$_GET[id]}' and pw='{$_GET[pw]}'"; 
   echo "<hr>query : <strong>{$query}</strong><hr><br>"; 
-  $result = @mysql_fetch_array(mysql_query($query)); 
+  $result = @mysqli_fetch_array(mysqli_query($query)); 
   if($result['id']) solve("zombie_assassin"); 
   highlight_file(__FILE__); 
 ?>
