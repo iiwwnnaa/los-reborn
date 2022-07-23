@@ -37,16 +37,17 @@ for($monster_i=1;$monster_i<=count($monster_list);$monster_i++){
 }
 
 function solve($monster_name){
+  $conn = dbconnect();
   global $monster_list;
   for($i=1;$i<count($monster_list)+1;$i++){
     if($monster_list[$i] == $monster_name) $solved = $i;
   }
-  $q = "select level from user_db where id='{$_SESSION[los_id]}'";
-  $result = @mysqli_fetch_array(mysqli_query($q));
+  $q = "select level from user_db where id='{$_SESSION['los_id']}'";
+  $result = @mysqli_fetch_array(mysqli_query($conn, $q));
   $now_level = $result['level'];
   if($now_level == $solved){
-    $query = "update user_db set lastauth=now(),level=(level+1) where id='{$_SESSION[los_id]}'";
-    mysqli_query($query);
+    $query = "update user_db set lastauth=now(),level=(level+1) where id='{$_SESSION['los_id']}'";
+    mysqli_query($conn, $query);
   }
   $tmp = strtoupper($monster_list[$solved]);
   echo "<h2>{$tmp} Clear!</h2>";
