@@ -47,7 +47,7 @@
 <?php
   for($i=1;$i<=20;$i++){
     $rank1 = @mysqli_fetch_array($rank_r);
-    echo $rank1['id'] . " - {$monster_list[$rank1[level]]}<br>\n";
+    echo $rank1['id'] . " - {$monster_list[$rank1['level']]}<br>\n";
   }
 ?>
 </div>
