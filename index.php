@@ -14,12 +14,12 @@ if($_SERVER['QUERY_STRING'] == "join"){
   $_POST['pw'] = md5($_POST['pw']);
   include "config.php";
   dbconnect();
-  $query = "select id from user_db where id='{$_POST[id]}'";
-  $result = @mysqli_fetch_array(mysqli_query($query)); 
+  $query = "select id from user_db where id='{$_POST['id']}'";
+  $result = @mysqli_fetch_array(mysqli_query($conn,$query)); 
   if($result['id']) exit("id exist");
   else{
     $time = time();
-    mysqli_query("insert into user_db(`id`,`pw`,`lastauth`) values('{$_POST[id]}','{$_POST[pw]}',now())");
+    mysqli_query($conn,"insert into user_db(`id`,`pw`,`lastauth`) values('{$_POST['id']}','{$_POST['pw']}',now())");
     $_SESSION['los_id'] = $result['id'];
     echo "<script>location.href='./gate.php';</script>";
   }
@@ -31,8 +31,8 @@ elseif($_SERVER['QUERY_STRING'] == "login"){
   $_POST['pw'] = md5($_POST['pw']);
   include "config.php";
   dbconnect();
-  $query = "select id from user_db where id='{$_POST[id]}' and pw='{$_POST[pw]}'";
-  $result = @mysqli_fetch_array(mysqli_query($query)); 
+  $query = "select id from user_db where id='{$_POST['id']}' and pw='{$_POST['pw']}'";
+  $result = @mysqli_fetch_array(mysqli_query($conn,$query)); 
   if($result['id']){
     $_SESSION['los_id'] = $result['id'];
 	exit("<script>location.href='./gate.php';</script>");
