@@ -8,7 +8,7 @@
   else $limit = 1;
   $query = "select id from probevilwizard where id='admin' limit {$limit}";
   $result = @mysqli_fetch_array(mysqli_query($conn,$query)); 
-  if(mysqli_error()) exit();
+  if(mysqli_error($conn)) exit();
   echo "<hr>query : <strong>{$query}</strong><hr><br>";
   
   $_GET['pw'] = addslashes($_GET['pw']);
