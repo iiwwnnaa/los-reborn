@@ -19,7 +19,7 @@ if($_SERVER['QUERY_STRING'] == "join"){
   if($result['id']) exit("id exist");
   else{
     $time = time();
-    mysql_query("insert into user_db(`id`,`pw`,`lastauth`) values('{$_POST[id]}','{$_POST[pw]}',now())");
+    mysqli_query("insert into user_db(`id`,`pw`,`lastauth`) values('{$_POST[id]}','{$_POST[pw]}',now())");
     $_SESSION['los_id'] = $result['id'];
     echo "<script>location.href='./gate.php';</script>";
   }

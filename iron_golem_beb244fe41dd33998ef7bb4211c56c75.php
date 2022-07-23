@@ -6,7 +6,7 @@
   if(preg_match('/sleep|benchmark/i', $_GET[pw])) exit("HeHe");
   $query = "select id from prob_iron_golem where id='admin' and pw='{$_GET[pw]}'";
   $result = @mysqli_fetch_array(mysqli_query($query)); 
-  if(mysql_error()) exit(mysql_error());
+  if(mysqli_error()) exit(mysqli_error());
   echo "<hr>query : <strong>{$query}</strong><hr><br>";
   
   $_GET[pw] = addslashes($_GET[pw]);

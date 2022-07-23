@@ -11,8 +11,8 @@ function dbconnect(){
   $mysql_user="los";
   $mysql_password="123";
   $mysql_database="los";
-  $conn=mysql_connect($mysql_hostname,$mysql_user,$mysql_password,$mysql_database) or die("db connection error");
-  mysql_query($conn, "set names utf8");
+  $conn=mysqli_connect($mysql_hostname,$mysql_user,$mysql_password,$mysql_database) or die("db connection error");
+  mysqli_query($conn, "set names utf8");
 }
 
 function login_chk(){
