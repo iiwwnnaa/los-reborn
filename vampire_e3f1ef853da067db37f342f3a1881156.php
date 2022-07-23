@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/\'/i', $_GET['id'])) exit("No Hack ~_~"); 
   $_GET['id'] = str_replace("admin","",$_GET['id']); 
   $query = "select id from prob_vampire where id='{$_GET['id']}'"; 

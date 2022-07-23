@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect(); 
   if(preg_match('/\'/i', $_GET['pw'])) exit("No Hack ~_~"); 
   $query = "select id from prob_assassin where pw like '{$_GET['pw']}'"; 
   echo "<hr>query : <strong>{$query}</strong><hr><br>"; 

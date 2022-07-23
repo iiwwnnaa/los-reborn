@@ -1,7 +1,7 @@
 <?php  
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/\'/i', $_GET['id'])) exit("No Hack ~_~");
   if(@ereg("admin",$_GET['id'])) exit("HeHe");
   $query = "select id from prob_troll where id='{$_GET['id']}'";

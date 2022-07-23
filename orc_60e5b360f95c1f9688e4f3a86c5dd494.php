@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/prob|_|\.|\(\)/i', $_GET['pw'])) exit("No Hack ~_~"); 
   $query = "select id from prob_orc where id='admin' and pw='{$_GET['pw']}'"; 
   echo "<hr>query : <strong>{$query}</strong><hr><br>"; 

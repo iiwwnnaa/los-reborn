@@ -2,7 +2,7 @@
 <?php
   include "./config.php";
   login_chk();
-  dbconnect();
+  $conn = dbconnect(); 
 
   function reset_flag(){
     $new_flag = substr(md5(rand(10000000,99999999)."qwer".rand(10000000,99999999)."asdf".rand(10000000,99999999)),8,16);

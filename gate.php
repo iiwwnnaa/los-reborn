@@ -1,7 +1,7 @@
 <?php
   include "config.php";
   login_chk();
-  dbconnect();
+  $conn = dbconnect(); 
 ?>
 <head>
 <title>Lord of SQLinjection</title>

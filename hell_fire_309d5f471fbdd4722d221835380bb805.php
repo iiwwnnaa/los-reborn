@@ -1,7 +1,7 @@
 <?php
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/_|\.|\(\)/i', $_GET[limit])) exit("No Hack ~_~");
   if(preg_match('/union|where|evilwizard/i', $_GET[limit])) exit("hehe");
   if($_GET[limit]) $limit = $_GET[limit];

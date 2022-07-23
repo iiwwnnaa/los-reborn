@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/prob|_|\.|\(\)|#|-/i', $_GET['pw'])) exit("No Hack ~_~"); 
   if(strlen($_GET['pw'])>6) exit("No Hack ~_~"); 
   $query = "select id from prob_nightmare where pw=('{$_GET['pw']}') and id!='admin'"; 

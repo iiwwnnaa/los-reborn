@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/prob|_|\.|\(\)/i', $_GET['pw'])) exit("No Hack ~_~"); 
   if(preg_match('/ /i', $_GET['pw'])) exit("No whitespace ~_~"); 
   $query = "select id from prob_wolfman where id='guest' and pw='{$_GET['pw']}'"; 

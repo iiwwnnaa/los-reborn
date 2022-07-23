@@ -13,7 +13,7 @@ if($_SERVER['QUERY_STRING'] == "join"){
   if(strlen($_POST['pw']) < 3) exit("pw too short");
   $_POST['pw'] = md5($_POST['pw']);
   include "config.php";
-  dbconnect();
+  $conn = dbconnect(); 
   $query = "select id from user_db where id='{$_POST['id']}'";
   $result = @mysqli_fetch_array(mysqli_query($conn,$query)); 
   if($result['id']) exit("id exist");
@@ -30,7 +30,7 @@ elseif($_SERVER['QUERY_STRING'] == "login"){
   if(preg_match('/_|\'|\\\|\./i', $_POST['id'])) exit("No Hack ~_~");
   $_POST['pw'] = md5($_POST['pw']);
   include "config.php";
-  dbconnect();
+  $conn = dbconnect(); 
   $query = "select id from user_db where id='{$_POST['id']}' and pw='{$_POST['pw']}'";
   $result = @mysqli_fetch_array(mysqli_query($conn,$query)); 
   if($result['id']){

@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[no])) exit("No Hack ~_~"); 
   if(preg_match('/\'|\"|\`/i', $_GET[no])) exit("No Quotes ~_~"); 
   $query = "select id from prob_goblin where id='guest' and no={$_GET[no]}"; 

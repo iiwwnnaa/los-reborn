@@ -13,6 +13,7 @@ function dbconnect(){
   $mysql_database="los";
   $conn=mysqli_connect($mysql_hostname,$mysql_user,$mysql_password,$mysql_database) or die("db connection error");
   mysqli_query($conn, "set names utf8");
+  return $conn
 }
 
 function login_chk(){

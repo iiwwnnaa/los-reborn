@@ -1,7 +1,7 @@
 <?php 
   include "./config.php"; 
   login_chk(); 
-  dbconnect(); 
+  $conn = dbconnect();  
   if(preg_match('/prob|_|\.|\(\)/i', $_GET[no])) exit("No Hack ~_~"); 
   if(preg_match('/\'/i', $_GET['pw'])) exit("HeHe"); 
   if(preg_match('/\'|substr|ascii|=/i', $_GET[no])) exit("HeHe"); 
